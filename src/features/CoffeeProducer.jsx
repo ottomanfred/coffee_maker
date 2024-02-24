@@ -6,7 +6,7 @@ export default function CoffeeProducer() {
 
   const dispatch = useDispatch(); 
 
-  const onBuy = (_e) => dispatch(buy)
+  const onBuy = (_e) => dispatch(buy());
 
   return (
     <>

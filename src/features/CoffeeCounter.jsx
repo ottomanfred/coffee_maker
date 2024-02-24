@@ -4,7 +4,7 @@ import {
   addCoffeePerSeconds,
   selectCoffees,
   selectCoffeesPerSecond,
-} from "./coffeesSlice";
+} from "./coffeesSlice.js";
 
 export default function CoffeeCounter() {
   const coffeeCount = useSelector(selectCoffees);
