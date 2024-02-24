@@ -1,9 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+//did i do the type properly?
 /** @type {{coffees: number, coffees/second: number, coffeeProducers: coffeeProducer[{name: string, quantity: number, coffee_second: number, cost: number, unlocked: boolean}]}} */
 const initialState = {
   coffees: 0,
-  coffees_second: 1,
+  coffees_second: 1*(state.coffeeProducers.reduce((acc, coffeeProducer)=>{
+    acc + (coffeeProducer.quantity*coffeeProducer.coffee_second)
+    return acc
+  }),1),
   coffeeProducers: [
     {
       name: "Chemex",
