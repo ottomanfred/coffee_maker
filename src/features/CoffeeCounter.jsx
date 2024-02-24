@@ -1,29 +1,35 @@
-import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addCoffee, addCoffeePerSeconds, selectCoffees, selectCoffeesPerSecond } from "./coffeesSlice";
+import {
+  addCoffee,
+  addCoffeePerSeconds,
+  selectCoffees,
+  selectCoffeesPerSecond,
+} from "./coffeesSlice";
 
 export default function CoffeeCounter() {
-  const coffeeCount = useSelector(selectCoffees)
+  const coffeeCount = useSelector(selectCoffees);
+  const coffeesPerSecond = useSelector(selectCoffeesPerSecond);
 
   const dispatch = useDispatch();
 
-  const onAdd = (e) => {
-    e.preventDefault();
-    dispatch(addNumber(+userInput));
+  const onClick = (_e) => {
+    dispatch(addCoffee);
+  };
+
+  const intervalDispatch = (_e) => {
+    dispatch(addCoffeePerSeconds);
   };
 
   return (
-    <form onSubmit={onAdd}>
-      <label>
-        Add a Number to the Bank
-        <input
-          name="number"
-          type="number"
-          value={userInput}
-          onChange={(e) => setUserInput(e.target.value)}
-        />
-      </label>
-      <button>Add Number</button>
-    </form>
+    <>
+      <h3>Coffee: {coffeeCount}</h3>
+      <p>{coffeesPerSecond} coffee/second</p>
+      <img
+        src="../assets/coffee_cup_image.png"
+        alt="coffee cup"
+        onClick={onClick}
+      />
+      <div>{intervalDispatch}</div>
+    </>
   );
 }
