@@ -88,10 +88,10 @@ const coffeesSlice = createSlice({
     addCoffeePerSecond: (state) => {
       setInterval((state.coffees += state.coffees_second), 1000);
     },
-    /**the reducer below is not right... TALK TO LESTER */
-    buy: (state, coffeeProducer) => {
-      state.coffeeProducer.quantity += 1;
-      state.coffeeProducer.cost *= 1.25;
+    /**the reducer below is not right -- i think this means i must pass i in when i map, not sure... */
+    buy: (state, i) => {
+      state.coffeeProducers[i].quantity += 1;
+      state.coffeeProducers[i].cost *= 1.25;
     },
   },
 });
@@ -101,7 +101,7 @@ export const { addCoffee, addCoffeePerSecond, buy } = coffeesSlice.actions;
 export const selectCoffees = (store) => store.coffeeBank.coffees;
 export const selectCoffeesPerSecond = (store) =>
   store.coffeeBank.coffees_second;
-/**the selector below may not right... TALK TO LESTER */
+/**the selector below may not right... but i think it is */
 export const selectCoffeeProducers = (store) =>
   store.coffeeBank.coffeeProducers;
 
