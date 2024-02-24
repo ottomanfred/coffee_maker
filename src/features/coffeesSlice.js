@@ -101,6 +101,7 @@ export const { addCoffee, addCoffeePerSecond, buy } = coffeesSlice.actions;
 export const selectCoffees = (store) => store.coffeeBank.coffees;
 export const selectCoffeesPerSecond = (store) =>
   store.coffeeBank.coffees_second;
+/**the selector below may not right... TALK TO LESTER */
 export const selectCoffeeProducers = (store) =>
   store.coffeeBank.coffeeProducers;
 
