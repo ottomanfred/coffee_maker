@@ -89,10 +89,15 @@ const coffeesSlice = createSlice({
   initialState,
   reducers: {
     addCoffee: (state) => {
-      state.coffees++;
+      state.coffees += 1;
     },
     addCoffeePerSecond: (state) => {
       setInterval((state.coffees += state.coffees_second), 1000);
+      for (const elem of state.coffeeProducers){
+        if (elem.unlocked === false && state.coffees === elem.cost*.5){
+            elem.unlocked = true; 
+        };
+      };
     },
     /**the reducer below is not right -- i think this means i must pass i in when i map, not sure... */
     buy: (state, i) => {
