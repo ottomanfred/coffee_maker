@@ -3,13 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 /** @type {{coffees: number, coffees/second: number, coffeeProducers: coffeeProducer[{name: string, quantity: number, coffees_second: number, cost: number, unlocked: boolean}]}} */
 const initialState = {
   coffees: 0,
-  coffees_second:
-    1 *
-    (state.coffeeProducers.reduce((acc, coffeeProducer) => {
-      acc + coffeeProducer.quantity * coffeeProducer.coffees_second;
-      return acc;
-    }),
-    1),
+  coffees_second: 1,
   coffeeProducers: [
     {
       name: "Chemex",
@@ -99,12 +93,15 @@ const coffeesSlice = createSlice({
         }
       }
     },
-    /**the reducer below is not right -- i think this means i must pass i in when i map, not sure... */
     buy: (state, { payload }) => {
       state.coffees_second += payload.coffees_second;
       state.coffees -= payload.cost;
-      state.coffeeProducers.find(payload.name).quantity += 1;
-      state.coffeeProducers.find(payload.name).cost *= 1.25;
+      state.coffeeProducers.find(
+        (producer) => producer.name === payload.name
+      ).quantity += 1;
+      state.coffeeProducers.find(
+        (producer) => producer.name === payload.name
+      ).cost *= 1.25;
     },
   },
 });
@@ -114,7 +111,6 @@ export const { addCoffee, addCoffeePerSecond, buy } = coffeesSlice.actions;
 export const selectCoffees = (store) => store.coffeeBank.coffees;
 export const selectCoffeesPerSecond = (store) =>
   store.coffeeBank.coffees_second;
-/**the selector below may not right... but i think it is */
 export const selectCoffeeProducers = (store) =>
   store.coffeeBank.coffeeProducers;
 

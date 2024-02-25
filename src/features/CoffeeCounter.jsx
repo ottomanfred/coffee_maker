@@ -1,7 +1,8 @@
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addCoffee,
-  addCoffeePerSeconds,
+  addCoffeePerSecond,
   selectCoffees,
   selectCoffeesPerSecond,
 } from "./coffeesSlice.js";
@@ -12,24 +13,28 @@ export default function CoffeeCounter() {
 
   const dispatch = useDispatch();
 
-  const onClick = (_e) => {
-    dispatch(addCoffee);
+  const manualAdd = (_e) => {
+    dispatch(addCoffee());
   };
 
-  const intervalDispatch = (_e) => {
-    dispatch(addCoffeePerSeconds);
+  const intervalDispatch = () => {
+    dispatch(addCoffeePerSecond());
   };
+
+  useEffect(() => {
+    const interval = setInterval(intervalDispatch, 1000); // Run intervalDispatch every second
+    return () => clearInterval(interval); // Cleanup function to clear the interval on component unmount
+  }, []); // Run only once on component mount
 
   return (
-    <>
+    <section className="coffee_counter">
       <h3>Coffee: {coffeeCount}</h3>
       <p>{coffeesPerSecond} coffee/second</p>
       <img
-        src="../assets/coffee_cup_image.png"
+        src="/Users/ottoleinsdorf/fs_coursework/coffee_maker/src/assets/coffee_cup_image.png"
         alt="coffee cup"
-        onClick={onClick}
+        onClick={manualAdd}
       />
-      <div>{intervalDispatch}</div>
-    </>
+    </section>
   );
 }

@@ -40,3 +40,33 @@
 .read-the-docs {
   color: #888;
 }
+
+.app_container {
+  display: flex;
+}
+
+.coffee_counter {
+  height: 100vh;
+  width: 50vh;
+}
+
+.producer_list {
+  height: 100vh;
+  width: 50vh;
+  border: black solid 0.05rem;
+}
+
+.producer_listing {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border: gray solid 0.05rem;
+  margin: 1rem;
+  font-size: 0.75em;
+}
+
+.listing_button {
+  border: gray solid 0.35rem;
+  background-color: gray;
+}
