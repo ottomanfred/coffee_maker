@@ -23,6 +23,7 @@
   display: flex;
   align-items: center;
   height: 100vh;
+  padding-top: 2rem;
 }
 
 .coffee_counter {
@@ -47,9 +48,10 @@
   justify-content: space-between;
   padding-left: 1rem;
   padding-right: 1rem;
-  padding-top: .5rem;
-  padding-bottom: .5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   border: gray solid 0.05rem;
+  border-radius: 5px;
   margin: 1rem;
   font-size: 0.75em;
 }
@@ -58,6 +60,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  justify-content: space-around;
 
   font-weight: bold;
 }
@@ -67,9 +70,9 @@
   align-items: center;
   justify-content: center;
 
-  border: black solid 0.05rem;
+  border: rgb(88, 85, 85) solid 0.05rem;
   background-color: rgb(213, 211, 211);
   height: 2em;
   width: 4em;
-  border-radius: 10%;
+  border-radius: 5px;
 }

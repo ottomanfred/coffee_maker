@@ -1,14 +1,12 @@
-import CoffeeProducer from "./CoffeeProducer"
+import CoffeeProducer from "./CoffeeProducer";
 
 export default function CoffeeProducerList() {
-  
-    return (
-      <section className="producer_list">
-        <h3>Coffee Producers</h3>
-        <div>
+  return (
+    <section>
+      <h3>Coffee Producers</h3>
+      <div className="producer_list">
         <CoffeeProducer />
-        </div>
-      </section>
-    );
-  }
-  
+      </div>
+    </section>
+  );
+}
