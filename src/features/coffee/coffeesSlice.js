@@ -86,9 +86,9 @@ const coffeesSlice = createSlice({
       state.coffees += 1;
     },
     addCoffeePerSecond: (state) => {
-      setInterval((state.coffees += state.coffees_second), 1000);
+      state.coffees += state.coffees_second;
       for (const elem of state.coffeeProducers) {
-        if (elem.unlocked === false && state.coffees === elem.cost * 0.5) {
+        if (elem.unlocked === false && state.coffees >= elem.cost * 0.5) {
           elem.unlocked = true;
         }
       }

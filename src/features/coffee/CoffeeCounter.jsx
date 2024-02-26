@@ -6,6 +6,7 @@ import {
   selectCoffees,
   selectCoffeesPerSecond,
 } from "./coffeesSlice.js";
+import coffeeCupImage from "../../assets/coffee_cup_image.png";
 
 export default function CoffeeCounter() {
   const coffeeCount = useSelector(selectCoffees);
@@ -30,11 +31,7 @@ export default function CoffeeCounter() {
     <section className="coffee_counter">
       <h3>Coffee: {coffeeCount}</h3>
       <p>{coffeesPerSecond} coffee/second</p>
-      <img
-        src="/Users/ottoleinsdorf/fs_coursework/coffee_maker/src/assets/coffee_cup_image.png"
-        alt="coffee cup"
-        onClick={manualAdd}
-      />
+      <img src={coffeeCupImage} alt="coffee cup" onClick={manualAdd} />
     </section>
   );
 }

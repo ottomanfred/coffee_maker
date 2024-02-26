@@ -5,10 +5,6 @@ export default function CoffeeProducer() {
   const coffeeProducers = useSelector(selectCoffeeProducers);
   const dispatch = useDispatch();
 
-  const onBuy = (payload) => {
-    dispatch(buy(payload));
-  };
-
   return (
     <>
       {coffeeProducers
@@ -17,7 +13,7 @@ export default function CoffeeProducer() {
           <section key={producer.name} className="producer_listing">
             <div className="name_buy">
               <p>{producer.name}</p>
-              <button className="listing_button" onClick={() => onBuy(producer)}>Buy</button>
+              <button className="listing_button" onClick={() => dispatch(buy(producer))}>Buy</button>
             </div>
             <div className="other_details">
               <p>Quantity: {producer.quantity}</p>
