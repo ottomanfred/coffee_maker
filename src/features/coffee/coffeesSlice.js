@@ -1,6 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 //did i do the type properly?
-/** @type {{coffees: number, coffees/second: number, coffeeProducers: coffeeProducer[{name: string, quantity: number, coffees_second: number, cost: number, unlocked: boolean}]}} */
+/**
+ * @typedef {name: string, quantity: number, coffees_second: number, cost: number, unlocked: boolean} coffeeProducer
+ */
+/**
+ * @type {{coffees: number, coffees_second: number, coffeeProducers: coffeeProducer[]}}
+ * */
 const initialState = {
   coffees: 0,
   coffees_second: 1,
